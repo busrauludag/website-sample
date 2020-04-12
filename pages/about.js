@@ -1,10 +1,9 @@
-import Navigation from '../components/navigation';
+import Layout from '../components/layout';
 
 function About() {
-  return <div>
-    <Navigation />
+  return <Layout>
     <h1>About Page!</h1>
-  </div>
+  </Layout>
 }
 
 export default About

@@ -9,7 +9,7 @@ function Navigation() {
         <a className={styles.link}>Homepage</a>
       </Link>
       <Link href="/about">
-        <a>About</a>
+        <a style={{ color: 'pink' }}>About</a>
       </Link>
     </nav>
   )

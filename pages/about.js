@@ -1,12 +1,9 @@
-import Link from 'next/link';
+import Navigation from '../components/navigation';
 
 function About() {
   return <div>
+    <Navigation />
     <h1>About Page!</h1>
-
-    <Link href="/">
-      <a>Homepage</a>
-    </Link>
   </div>
 }
 

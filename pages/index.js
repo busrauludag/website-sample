@@ -1,7 +1,9 @@
 import Layout from '../components/layout';
 import Head from 'next/head';
+import Link from 'next/link';
+import unfetch from 'isomorphic-unfetch';
 
-function HomePage() {
+function HomePage({ characters }) {
   return (
     <Layout>
       <Head>
@@ -9,21 +11,44 @@ function HomePage() {
       </Head>
       <h1>Welcome to Next.js!</h1>
 
-      <style jsx>{`
+
+      <ul>
+        {characters.results.map(character => (
+          <li key={character.id}>
+            <Link href="/character/[id]" as={`/character/${character.id}`}>
+              <a>{character.name}</a>
+            </Link>
+          </li>)
+        )}
+      </ul>
+
+
+      {/* <style jsx>{`
         h1 {
           color: white;
           background-color: blue;
         }
-      `}</style>
+      `}</style> */}
 
       {/* bu sayfaya ozgu global css */}
-      <style global jsx>{`
+      {/* <style global jsx>{`
         body {
           background-color: aliceblue;
         }
-      `}</style>
+      `}</style> */}
     </Layout>
   )
+}
+
+export async function getStaticProps() {
+  // data fetch
+  const data = await unfetch('https://rickandmortyapi.com/api/character/');
+  const characters = await data.json();
+  return {
+    props: {
+      characters
+    }
+  }
 }
 
 export default HomePage

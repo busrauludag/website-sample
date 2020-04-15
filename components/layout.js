@@ -7,13 +7,13 @@ function Layout({ children }) {
       <Head>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <Navigation />
+      {/* <Navigation /> */}
       <main>
         {children}
       </main>
-      <footer>
+      {/* <footer>
         desing by busra
-    </footer>
+      </footer> */}
     </div>
   )
 }

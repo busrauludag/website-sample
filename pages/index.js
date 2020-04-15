@@ -2,6 +2,7 @@ import Layout from '../components/layout';
 import Head from 'next/head';
 import Link from 'next/link';
 import unfetch from 'isomorphic-unfetch';
+import slug from 'slug';
 
 function HomePage({ characters }) {
   return (
@@ -9,13 +10,12 @@ function HomePage({ characters }) {
       <Head>
         <title>Homepgae</title>
       </Head>
-      <h1>Welcome to Next.js!</h1>
-
+      <h1>RICK AND MORTY</h1>
 
       <ul>
         {characters.results.map(character => (
           <li key={character.id}>
-            <Link href="/character/[id]" as={`/character/${character.id}`}>
+            <Link href="/character/[slug]" as={`/character/${slug(character.name)}-${character.id}`}>
               <a>{character.name}</a>
             </Link>
           </li>)
